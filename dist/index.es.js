@@ -41,7 +41,7 @@ const getGithubContributionsForYear = async (username, token, year) => {
     const contributionWeeks = weeks.filter((week) => {
         const { firstDay } = week;
         if (firstDay.includes(year.toString()) ||
-            week.contributionDays[6].date.includes(year.toString())) {
+            week.contributionDays[week.contributionDays.length - 1].date.includes(year.toString())) {
             return true;
         }
     });

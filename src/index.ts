@@ -105,7 +105,7 @@ export const getGithubContributionsForYear = async (
     const { firstDay } = week;
     if (
       firstDay.includes(year.toString()) ||
-      week.contributionDays[6].date.includes(year.toString())
+      week.contributionDays[week.contributionDays.length - 1].date.includes(year.toString())
     ) {
       return true;
     }
