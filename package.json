@@ -1,15 +1,25 @@
 {
   "name": "github-contribution-counter",
   "version": "1.0.2",
-  "description": "",
+  "description": "Github Contribution Boxes Counter along with all the contribution counter. Fork of SammyRobensParadise/github-contributions-counter",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
   "scripts": {
-    "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h3cksamrat/github-contribution-counter.git"
+  },
+  "keywords": [
+    "github",
+    "contribution",
+    "counter",
+    "github-contribution-counter",
+    "github-contribution-counter-js",
+    "typescript"
+  ],
+  "author": "Samrat Neupane",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2"
