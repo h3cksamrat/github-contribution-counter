@@ -1,6 +1,6 @@
 {
   "name": "github-contribution-counter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Github Contribution Boxes Counter along with all the contribution counter. Fork of SammyRobensParadise/github-contributions-counter",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
