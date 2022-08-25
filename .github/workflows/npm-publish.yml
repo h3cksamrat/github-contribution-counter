@@ -1,25 +1,25 @@
-name: npm-publish
+name: Release
 on:
+  pull_request:
   push:
     branches:
-      - main # Change this to your default branch
+      - main
 jobs:
-  npm-publish:
-    name: npm-publish
+  release:
+    name: Release
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'Release')"
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: Publish if version has been updated
-        uses: pascalgn/npm-publish-action@1.3.6
-        with: # All of theses inputs are optional
-          tag_name: 'v%s'
-          tag_message: 'v%s'
-          create_tag: 'true'
-          commit_pattern: "^Release (\\S+)"
-          workspace: '.'
-          publish_command: 'yarn'
-          publish_args: '--non-interactive'
-        env: # More info about the environment variables in the README
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js for NPM
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+      - name: NPM Release
+        run: npm publish --registry=https://registry.npmjs.org
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
